@@ -31,3 +31,18 @@ const init = function() {
   player1El.classList.remove('player--active');
 };
 init();
+
+btnRoll.addEventListener('click', () => {
+  if (playing) {
+    const dice = Math.trunc(Math.random() * 6 + 1);
+    diceEl.classList.remove('hidden');
+    diceEl.src = `dice-${dice}.png`;
+    if (dice !== 1) {
+      currentScore += dice;
+      document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+    } else {
+      currentScore = 0;
+      switchPlayer();
+    }
+  }
+});
