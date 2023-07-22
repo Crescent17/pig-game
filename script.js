@@ -61,3 +61,13 @@ btnHold.addEventListener('click', () => {
     }
   }
 );
+
+btnNew.addEventListener('click', init);
+
+const switchPlayer = function() {
+  currentScore = 0;
+  document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  player0El.classList.toggle('player--active');
+  player1El.classList.toggle('player--active');
+};
